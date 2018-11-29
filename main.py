@@ -3,9 +3,9 @@ from telethon import TelegramClient, events
 from functions import save_message, get_credentials, create_config, query_yes_no
 
 if os.path.exists('config.py'):
-    override_config = query_yes_no('Use saved user data?', 'yes')
+    use_saved_data = query_yes_no('Use saved user data?', 'yes')
 
-if not os.path.exists('config.py') or not override_config:
+if not os.path.exists('config.py') or not use_saved_data:
     user_data = get_credentials()
     create_config(user_data)
 
