@@ -1,6 +1,7 @@
 config.py
 personal_config.py
 telegram_messages.txt
+*.session
 
 __pycache__/
 build/
