@@ -4,12 +4,14 @@ def get_credentials():
     api_name = input('Please tell me your API name: ')
     api_id = input('Now tell me your API ID: ')
     api_hash = input('Now I need your API hash: ')
-    chat_name = input('Finally, tell me the user/chat/channel you want to log: ')
+    chat_name = input('What\'s the user/chat/channel you want to log? ')
+    commands_chat = input('Finally, set up a convesation to recieve commands from (blank for none): ')
     user_data = {
         'api_name': api_name,
         'api_id': api_id,
         'api_hash': api_hash,
-        'chat_name': chat_name
+        'chat_name': chat_name,
+        'commands_chat': chat_name if chat_name else ''
     }
     return user_data
 
@@ -19,13 +21,14 @@ def create_config(user_data):
     api_id = 'api_id = ' + user_data['api_id'] + '\r\n'
     api_hash = 'api_hash = \'' + user_data['api_hash'] + '\'\r\n'
     chat_name = 'chat_name = \'' + user_data['chat_name'] + '\'\r\n'
+    commands_chat = 'commands_chat = \'' + user_data['commands_chat'] + '\'\r\n'
     f = open('config.py', 'w+')
-    f.writelines([verbose, api_name, api_id, api_hash, chat_name])
+    f.writelines([verbose, api_name, api_id, api_hash, chat_name, commands_chat])
     f.write('\r\n')
     f.close()
 
-def save_message(message):
-    f = open('telegram_messages.txt', 'a+')
+def save_message(message, file_name = 'telegram_messages.txt'):
+    f = open(file_name, 'a+')
     f.write(message + '\r\n')
     f.write('\r\n')
     f.close()
