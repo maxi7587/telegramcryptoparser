@@ -1,4 +1,4 @@
-from test_functions import is_date
+from test_functions import is_date, xls_output
 
 # clean data
 with open('test_messages.txt', 'r') as myfile:
@@ -17,4 +17,5 @@ for line in clean_data:
     else:
         messages_by_date[message_time].append(line)
 
-print(messages_by_date)
+
+xls_output('test_xls_output.xls', 'crypto_data', messages_by_date)
