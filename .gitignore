@@ -1,6 +1,7 @@
 config.py
 personal_config.py
 *.txt
+*.xls
 *.session
 *.session-journal
 

@@ -23,7 +23,7 @@ def xls_output(filename, sheetname, data_dict):
             dated_data = [data] + data_dict[data]
             for column_number in range(0, len(dated_data) - 1):
                 sh.write(row_number, column_number, dated_data[column_number])
-                print('saving:', dated_data[column_number])
+                # print('saving:', dated_data[column_number])
         except IndexError:
             pass
         row_number += 1

@@ -23,10 +23,10 @@ async def my_event_handler(event):
 async def get_all_messages(event):
     if 'get_messages' in event.raw_text:
         print('gathering messages...')
-        async for message in client.iter_messages('crp_signals', 100):
+        async for message in client.iter_messages(chat_name, 100):
             print(message.date)
-            save_message(str(message.date), 'last_messages.txt')
-            save_message(message.message, 'last_messages.txt')
+            save_message(str(message.date), ./txt/' + chat_name + '_last_messages.txt')
+            save_message(message.message, ./txt/' + chat_name + '_last_messages.txt')
 
 client.start()
 client.run_until_disconnected()
