@@ -18,9 +18,12 @@ def xls_output(filename, sheetname, data_dict):
     sh = book.add_sheet(sheetname)
 
     row_number = 0
+    print(data_dict)
     for data in data_dict:
         try:
-            dated_data = [data] + data_dict[data]
+            print([data[0]])
+            # dated_data = [data] + data_dict[data]
+            dated_data = [data[0]] + data[1]
             for column_number in range(0, len(dated_data) - 1):
                 sh.write(row_number, column_number, dated_data[column_number])
                 # print('saving:', dated_data[column_number])
